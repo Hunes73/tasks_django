@@ -56,7 +56,6 @@ class TaskViewSet(viewsets.ModelViewSet):
         return Response(response_data, status=status.HTTP_201_CREATED)
 
     def update(self, request, *args, **kwargs):
-        partial = kwargs.pop('partial', False)
         username = request.data.get('username')
 
         if username:
@@ -70,7 +69,7 @@ class TaskViewSet(viewsets.ModelViewSet):
         instance = self.get_object()
         instance.user = user
 
-        serializer = self.get_serializer(instance, data=request.data, partial=partial)
+        serializer = self.get_serializer(instance, data=request.data, partial=True)
         serializer.is_valid(raise_exception=True)
         task = serializer.save()
 
