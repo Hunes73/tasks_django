@@ -57,11 +57,20 @@ class TaskViewSet(viewsets.ModelViewSet):
 
     def update(self, request, *args, **kwargs):
         partial = kwargs.pop('partial', False)
-        instance = self.get_object()
-        request_data = request.data.copy()
-        request_data.pop('id', None)
+        username = request.data.get('username')
 
-        serializer = self.get_serializer(instance, data=request_data, partial=partial)
+        if username:
+            try:
+                user = User.objects.get(username=username)
+            except User.DoesNotExist:
+                raise serializers.ValidationError('Invalid username.')
+        else:
+            user = None
+
+        instance = self.get_object()
+        instance.user = user
+
+        serializer = self.get_serializer(instance, data=request.data, partial=partial)
         serializer.is_valid(raise_exception=True)
         task = serializer.save()
 

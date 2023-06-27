@@ -64,7 +64,7 @@ class TaskTestCase(TestCase):
         self.assertEqual(self.task1.name, 'Zaktualizowane zadanie')
         self.assertEqual(self.task1.description, 'Zaktualizowany opis')
         self.assertEqual(self.task1.status, 'W toku')
-        self.assertEqual(self.task1.user, self.user2)
+        self.assertEqual(self.task1.user.username, 'user2')
 
     def test_delete_task(self):
         self.client.login(username='user1', password='password1')
