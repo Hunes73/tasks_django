@@ -14,9 +14,9 @@ class TaskTestCase(TestCase):
         self.client = APIClient()
         self.user1 = User.objects.create_user(username='user1', password='password1')
         self.user2 = User.objects.create_user(username='user2', password='password2')
-        self.task1 = Task.objects.create(name='Zadanie #1', description='Opis 1', status='Nowe', user=self.user1)
+        self.task1 = Task.objects.create(name='Zadanie #1', description='Opis 1', status='Nowy', user=self.user1)
         self.task2 = Task.objects.create(name='Zadanie #2', description='Opis 2', status='W toku', user=self.user1)
-        self.task3 = Task.objects.create(name='Zadanie #3', description='Opis 3', status='Rozwiązane', user=self.user2)
+        self.task3 = Task.objects.create(name='Zadanie #3', description='Opis 3', status='Rozwiązany', user=self.user2)
 
     def test_get_all_tasks(self):
         self.client.login(username='user1', password='password1')
@@ -39,7 +39,7 @@ class TaskTestCase(TestCase):
         data: dict[str, str] = {
             'name': 'Nowe zadanie',
             'description': 'Nowy opis',
-            'status': 'Nowe',
+            'status': 'Nowy',
             'username': 'user1',
         }
         response = self.client.post('/api/tasks/', data)
@@ -47,7 +47,7 @@ class TaskTestCase(TestCase):
         self.assertEqual(Task.objects.count(), 4)
         self.assertEqual(Task.objects.last().name, 'Nowe zadanie')
         self.assertEqual(Task.objects.last().description, 'Nowy opis')
-        self.assertEqual(Task.objects.last().status, 'Nowe')
+        self.assertEqual(Task.objects.last().status, 'Nowy')
         self.assertEqual(Task.objects.last().user, self.user1)
 
     def test_update_task(self):

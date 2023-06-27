@@ -6,14 +6,14 @@ from django.contrib.auth.models import User
 class Task(models.Model):
     objects = models.Manager()
     STATUS_CHOICES = [
-        ('Nowe', 'Nowe'),
+        ('Nowy', 'Nowy'),
         ('W toku', 'W toku'),
-        ('Rozwiązane', 'Rozwiązane'),
+        ('Rozwiązany', 'Rozwiązany'),
     ]
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=255, blank=False)
     description = models.TextField(blank=True)
-    status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='Nowe')
+    status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='Nowy')
     user = models.ForeignKey(User, null=True, blank=True, on_delete=models.SET_NULL)
     history = HistoricalRecords()
 

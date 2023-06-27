@@ -14,12 +14,12 @@ class Command(BaseCommand):
         user1 = User.objects.create_user(username='user1', password='password1')
         user2 = User.objects.create_user(username='user2', password='password2')
 
-        Task.objects.create(name='Zadanie numer 1', description='Opis zadania numer 1', status='Nowe', user=user1)
+        Task.objects.create(name='Zadanie numer 1', description='Opis zadania numer 1', status='Nowy', user=user1)
         Task.objects.create(name='Zadanie numer 2', description='Opis zadania numer 2', status='W toku', user=user1)
-        Task.objects.create(name='Zadanie numer 3', description='Opis zadania numer 3', status='Rozwiązane', user=user1)
-        Task.objects.create(name='Ćwicznie numer 4', description='Ćwiczenie do wykonania na następne zajęcia', status='Nowe', user=user1)
+        Task.objects.create(name='Zadanie numer 3', description='Opis zadania numer 3', status='Rozwiązany', user=user1)
+        Task.objects.create(name='Ćwicznie numer 4', description='Ćwiczenie do wykonania na następne zajęcia', status='Nowy', user=user1)
 
         Task.objects.create(name='Ćwicznie numer 1', description='Ćwiczenie dla chętnego', status='W toku', user=user2)
-        Task.objects.create(name='Ćwicznie o numerze porządkowym 2', description='Ćwiczenie dla nadrabiającego zaległości', status='Rozwiązane', user=user2)
+        Task.objects.create(name='Ćwicznie o numerze porządkowym 2', description='Ćwiczenie dla nadrabiającego zaległości', status='Rozwiązany', user=user2)
 
         self.stdout.write(self.style.SUCCESS('Database initialization complete.'))

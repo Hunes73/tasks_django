@@ -48,7 +48,7 @@ POSTGRES_PASSWORD=SuperSecretPassword1!
 ```
 
 # Działanie aplikacji
-Jako, że aplikacja działa jako REST API, do jej obsługi należy użyć narzędzi takich jak Postman, lub używając dostępnego pod adresem http://localhost:80/swagger interfejsu Swagger UI lub dokumentacji ReDoc pod adresem http://localhost:80/redoc.
+Jako, że aplikacja udostępnia API, do jej obsługi należy użyć narzędzi takich jak Postman, lub używając dostępnego pod adresem http://localhost:80/swagger interfejsu Swagger UI lub dokumentacji ReDoc pod adresem http://localhost:80/redoc.
 
 Aby wykonać jakiekolwiek zapytanie, musimy się jednak  najpierw zalogować. Zrobimy to pod adresem http://localhost:80/api/accounts/login. Na start dostępne są dwa konta użytkowników:
 - username: user1, password: password1
@@ -56,7 +56,7 @@ Aby wykonać jakiekolwiek zapytanie, musimy się jednak  najpierw zalogować. Zr
 
 Możemy też utworzyć kolejne konta, pod adresem http://localhost:80/api/accounts/register.
 
-Po zalogowaniu zostaniemy przeniesieni do witryny, w której wyświetlą się przypisane do naszego użytkownika zadania.
+Po zalogowaniu zostaniemy przeniesieni do witryny, w której wyświetlą się przypisane do naszego użytkownika zadania. Domyślni użytkownicy mają już przypisane zadania, więc po zalogowaniu powinniśmy je zobaczyć.
 Korzystając z API możemy wykonać następujące operacje:
 - wyświetlenie listy wszystkich zadań
 - wyświetlenie listy zadań przypisanych do zalogowanego użytkownika
