@@ -11,7 +11,7 @@
 
 # Opis aplikacji
 
-Aplkacja pozwala na wyświetlanie, dodawanie, usuwanie i edycję zadań. Zadania są przechowywane w bazie danych.
+Aplikacja pozwala na wyświetlanie, dodawanie, usuwanie i edycję zadań. Zadania są przechowywane w bazie danych.
 Komunikacja z aplikacją odbywa się poprzez REST API. Aplikacja została napisana w języku Python z wykorzystaniem frameworka Django.
 # Uruchomienie aplikacji
 1. Pobierz repozytorium
